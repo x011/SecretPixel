@@ -65,7 +65,7 @@ This extracts the hidden file from `carrier.png` using the private key `myprivat
 
 ## Security and Stealth
 
-SecretPixel is designed with security and stealth in mind. The encryption process ensures that the hidden data remains confidential, while the compression and random distribution of data make it extremely difficult for steganalysis tools to detect the presence of embedded information. The use of a seeded random number generator adds an additional layer of security, as the pattern of embedded data cannot be predicted without knowing the seed, which is derived from the image dimensions.
+SecretPixel is designed with security and stealth in mind. The encryption process ensures that the hidden data remains confidential, while the compression and random distribution of data make it extremely difficult for steganalysis tools to detect the presence of embedded information. The use of a seeded random number generator adds an additional layer of security, as the pattern of embedded data cannot be predicted without knowing the seed.
 
 
 ## Encryption:
