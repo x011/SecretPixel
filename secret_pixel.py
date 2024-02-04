@@ -94,14 +94,6 @@ def decrypt_data(encrypted_session_key, salt, iv, encrypted_data, private_key):
     
     return decrypted_data
 
-
-def add_random_noise(pixels, intensity=1):
-    # Ensure that the noise only affects the LSB
-    noise = np.random.randint(-intensity, intensity + 1, pixels.shape, dtype=np.int8)
-    noisy_pixels = pixels.astype(np.int16) + noise
-    np.clip(noisy_pixels, 0, 255, out=noisy_pixels)  # Ensure values are within [0, 255]
-    return noisy_pixels.astype(np.uint8)
-
 def compute_seed_from_image_dimensions(image_path):
     with Image.open(image_path) as img:
         width, height = img.size
@@ -166,7 +158,6 @@ def hide_file_in_png(image_path, file_to_hide, output_image_path, public_key_pat
     # Encrypt the compressed data
     encrypted_session_key, salt, iv, encrypted_data = encrypt_data(compressed_data, public_key)
     
-
     # Get the filename to store
     filename = os.path.basename(file_to_hide).encode()
     filename_size = len(filename)
@@ -208,13 +199,8 @@ def hide_file_in_png(image_path, file_to_hide, output_image_path, public_key_pat
             print("Extraction cancelled.")
             return
     
-    # After embedding the data, add random noise to the image
-    # noisy_pixels = add_random_noise(pixels)
-    
-
     # Save the new image
     new_img = Image.fromarray(pixels, 'RGBA')
-    #new_img.save(output_image_path, format='PNG', optimize=True)
 
     if host_format == 'PNG':
         new_img.save(output_image_path, format='PNG', optimize=True)
@@ -225,12 +211,8 @@ def hide_file_in_png(image_path, file_to_hide, output_image_path, public_key_pat
     elif host_format == 'TIFF':
         new_img.save(output_image_path, format='TIFF', compression='tiff_deflate', optimize=True)
     else:
-        # If the format is not one of the supported/expected formats, you can default to PNG
-        # or raise an error.
-        # new_img.save(output_image_path, format='PNG')  # Default to PNG
+        # If the format is not one of the supported/expected formats, raise an error.
         raise ValueError(f"Unsupported image format: {host_format}")
-
-    #new_img.save(output_image_path)
 
     print(f"File '{file_to_hide}' has been successfully hidden in '{output_image_path}'.")
 
