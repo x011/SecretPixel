@@ -154,7 +154,7 @@ def hide_file_in_png(image_path, file_to_hide, output_image_path, public_key_pat
     
     # Compress the file
     compressed_data = zlib.compress(file_bytes)
-    
+
     # Encrypt the compressed data
     encrypted_session_key, salt, iv, encrypted_data = encrypt_data(compressed_data, public_key)
     
@@ -209,7 +209,7 @@ def hide_file_in_png(image_path, file_to_hide, output_image_path, public_key_pat
     elif host_format == 'TGA':
         new_img.save(output_image_path, format='TGA', optimize=True)
     elif host_format == 'TIFF':
-        new_img.save(output_image_path, format='TIFF', compression='tiff_deflate', optimize=True)
+        new_img.save(output_image_path, format='TIFF', optimize=True)
     else:
         # If the format is not one of the supported/expected formats, raise an error.
         raise ValueError(f"Unsupported image format: {host_format}")
