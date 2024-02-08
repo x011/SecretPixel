@@ -126,4 +126,6 @@ SecretPixel is a unique and highly secure steganography tool that offers advance
 
 This program is released under the GNU General Public License v3.0.
 
-Devoloped by Pedro Lobito. For more details, see the [LICENSE](https://github.com/x011/SecretPixel?tab=GPL-3.0-1-ov-file) file or visit [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+Project Developed by Pedro Lobito. 
+
+For more details, see the [LICENSE](https://github.com/x011/SecretPixel?tab=GPL-3.0-1-ov-file) file or visit [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
