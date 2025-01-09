@@ -272,7 +272,7 @@ def extract_file_from_png(image_path, output_file_path, private_key_path):
     prng.shuffle(pixel_indices)  # Shuffle using the seeded PRNG
 
     # Extract the file size from the first 64 pixels
-    file_size = 0
+    file_size = np.int64(0)
     for i in range(64):
         idx = pixel_indices[i]
         file_size = (file_size << 1) | (pixels[idx // pixels.shape[1], idx % pixels.shape[1], 0] & 0x1)
