@@ -248,24 +248,6 @@ def extract_file_from_png(image_path, output_file_path, private_key_path):
         img = img.convert('RGBA')
     
     pixels = np.array(img)
-    
-    # Flatten the image array for easier processing
-    flat_pixels = pixels.flatten()
-    
-    # Use only the red channel for RGBA
-    channel_multiplier = 4
-
-    # Extract the file size from the first 64 pixels
-    file_size = 0
-    for i in range(64):
-        file_size = (file_size << 1) | (flat_pixels[i * channel_multiplier] & 0x1)
-    
-    # Calculate the number of bytes that can be extracted
-    num_bytes_to_extract = file_size
-    
-    # Prepare a list to store the extracted bytes
-    extracted_bytes = []
-    
 
     # Generate a list of unique indices to extract the data
     pixel_indices = list(range(pixels.size // 4))
