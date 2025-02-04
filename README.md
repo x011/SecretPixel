@@ -16,7 +16,7 @@ SecretPixel is a cutting-edge steganography tool designed to securely conceal se
 
 ## Installation
 
-To use SecretPixel, clone the repository or download the source code from GitHub. Ensure you have Python 3 (**>=3.7,<3.11**) installed on your system, along with the required packages:
+To use SecretPixel, clone the repository or download the source code from GitHub. Ensure you have **Python 3 (>=3.7,<3.11)** installed on your system, along with the required packages:
 
 ```
 git clone https://github.com/x011/SecretPixel.git
